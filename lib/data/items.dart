@@ -1,65 +1,80 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:uidesign06/core/color.dart';
 
 class Cakes {
   final String name;
-  final String flavourl;
+  final String flavour;
   final String image;
   final String price;
   final Color bgColor;
-  final String destription;
+  final String description;
   final double rating;
 
   Cakes({
     required this.name,
-    required this.flavourl,
+    required this.flavour,
     required this.image,
     required this.price,
     required this.bgColor,
-    required this.destription,
+    required this.description,
     required this.rating,
   });
 }
 
 List<Cakes> cakes = [
   Cakes(
-    name: 'Princess Birthday Cake',
-    flavourl: 'Creamy',
-    price: '250.60',
-    image: 'assets/images/01.png',
+    name: 'White Wedding Cake',
+    flavour: 'Vanilla',
+    price: '299.99',
+    image: 'assets/images/white-icing-covered-cake-on-white-plate-chocolate-cake-sponge-cake-mousse-frosting-icing-carrot-cake-bolo-cream-food.png',
     bgColor: pink01,
-    destription:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. ',
+    description: 'Elegant white wedding cake with delicate frosting and multiple tiers. Perfect for your special day.',
+    rating: 4.8,
+  ),
+  Cakes(
+    name: 'Classic White Cake',
+    flavour: 'Vanilla',
+    image: 'assets/images/white_cake.png',
+    price: '149.99',
+    bgColor: pink02,
+    description: 'Traditional white cake with smooth frosting and elegant decorations.',
     rating: 4.5,
   ),
   Cakes(
-    name: 'Birthday Cake',
-    flavourl: 'Creamy',
-    image: 'assets/images/02.png',
-    price: '220.60',
-    bgColor: pink01,
-    destription:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.  ',
-    rating: 4,
+    name: 'Strawberry Delight',
+    flavour: 'Strawberry',
+    price: '179.99',
+    image: 'assets/images/strawberry_cake.png',
+    bgColor: pink03,
+    description: 'Fresh strawberry cake with cream cheese frosting and real fruit pieces.',
+    rating: 4.7,
   ),
   Cakes(
-    name: 'Wedding Cake',
-    flavourl: 'Creamy',
-    price: '450.60',
-    image: 'assets/images/03.png',
-    bgColor: pink01,
-    destription:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.  ',
-    rating: 2.5,
+    name: 'Chocolate Fudge',
+    flavour: 'Chocolate',
+    image: 'assets/images/slice-of-chocolate-cake-chocolate-cake-sachertorte-birthday-cake-fudge-cake-chocolate-cake-baked-goods-food.png',
+    price: '189.99',
+    bgColor: accent2,
+    description: 'Rich chocolate fudge cake with ganache frosting and chocolate shavings.',
+    rating: 4.9,
   ),
   Cakes(
-    name: 'Cup Cake',
-    flavourl: 'Creamy',
-    image: 'assets/images/04.png',
-    price: '850.60',
+    name: 'Birthday Special',
+    flavour: 'Vanilla',
+    price: '159.99',
+    image: 'assets/images/one-sliced-white-happy-birthday-cake-illustration-birthday-cake-cake-in-cream-food.png',
     bgColor: pink01,
-    destription:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. ',
-    rating: 5,
+    description: 'Festive birthday cake with colorful decorations and sprinkles.',
+    rating: 4.6,
   ),
+  Cakes(
+    name: 'Wedding Layer Cake',
+    flavour: 'Mixed',
+    image: 'assets/images/layer-cake-wedding-cake-sugar-cake-torte-wedding-cake-baking-cake-decorating.png',
+    price: '399.99',
+    bgColor: accent2,
+    description: 'Multi-layered wedding cake with intricate designs and premium ingredients.',
+    rating: 5.0,
+  ),
+  // Add more cakes as needed
 ];
