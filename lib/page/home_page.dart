@@ -170,11 +170,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       return OpenContainer(
                         transitionDuration: Duration(milliseconds: 500),
                         openBuilder: (context, _) => DetailPage(cake: filteredCakes[index]),
-                        closedBuilder: (context, openContainer) => GestureDetector(
-                          onTap: openContainer,
-                          child: Hero(
-                            tag: 'cake_${filteredCakes[index].name}',
-                            child: ItemCard(cake: filteredCakes[index]),
+                        closedBuilder: (context, openContainer) => Hero(
+                          tag: 'cake_${filteredCakes[index].name}',
+                          child: ItemCard(
+                            cake: filteredCakes[index],
+                            onTap: openContainer,
                           ),
                         ),
                       );
@@ -276,7 +276,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             },
             child: CategoryButton(
               category: category,
-              index: selectIndex,
+              selectedIndex: selectIndex,
+              index: index,
             ),
           );
         },
