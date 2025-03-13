@@ -5,6 +5,10 @@ import 'package:sweet_delights/core/text_style.dart';
 import 'package:sweet_delights/data/items.dart';
 import 'package:sweet_delights/widget/custom_app_bar.dart';
 import 'package:sweet_delights/widget/rating_bar.dart';
+import 'package:provider/provider.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:sweet_delights/providers/favorites_provider.dart';
+import 'package:sweet_delights/providers/cart_provider.dart';
 
 class DetailPage extends StatefulWidget {
   final Cakes cake;
@@ -301,13 +305,19 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                                     ),
                                     child: IconButton(
                                       icon: Icon(
-                                        isFavorite ? Icons.favorite : Icons.favorite_border,
+                                        context.watch<FavoritesProvider>().isFavorite(widget.cake)
+                                            ? Icons.favorite
+                                            : Icons.favorite_border,
                                         color: mainColor,
                                       ),
                                       onPressed: () {
-                                        setState(() {
-                                          isFavorite = !isFavorite;
-                                        });
+                                        context.read<FavoritesProvider>().toggleFavorite(widget.cake);
+                                        Fluttertoast.showToast(
+                                          msg: context.read<FavoritesProvider>().isFavorite(widget.cake)
+                                              ? 'Added to favorites'
+                                              : 'Removed from favorites',
+                                          backgroundColor: mainColor,
+                                        );
                                       },
                                     ),
                                   ),
@@ -315,7 +325,11 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                                   Expanded(
                                     child: ElevatedButton(
                                       onPressed: () {
-                                        // Add to cart logic
+                                        context.read<CartProvider>().addItem(widget.cake, quantity: quantity);
+                                        Fluttertoast.showToast(
+                                          msg: 'Added to cart',
+                                          backgroundColor: mainColor,
+                                        );
                                       },
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: mainColor,
