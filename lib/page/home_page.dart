@@ -130,6 +130,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           },
           backgroundColor: mainColor,
           child: AnimatedIcon(
+            color: Colors.white,
             icon: AnimatedIcons.view_list,
             progress: _tabController.animation!,
           ),
