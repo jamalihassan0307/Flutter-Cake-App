@@ -107,7 +107,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                             ),
                           ),
                         ),
-                        
+
                         // Details Container
                         Container(
                           padding: EdgeInsets.all(20),
@@ -164,7 +164,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                                 ],
                               ),
                               SizedBox(height: 20),
-                              
+
                               // Rating and Reviews
                               Row(
                                 children: [
@@ -301,9 +301,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                                     ),
                                     child: IconButton(
                                       icon: Icon(
-                                        isFavorite
-                                            ? Icons.favorite
-                                            : Icons.favorite_border,
+                                        isFavorite ? Icons.favorite : Icons.favorite_border,
                                         color: mainColor,
                                       ),
                                       onPressed: () {
