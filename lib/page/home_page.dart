@@ -21,10 +21,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   int selectIndex = 0;
   late AnimationController _animationController;
   late AnimationController _menuAnimationController;
+  List<Cakes> filteredCakes = [];
 
   @override
   void initState() {
     super.initState();
+    filteredCakes = cakes; // Initially show all cakes
     _animationController = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 800),
@@ -161,18 +163,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   flex: 2,
                   child: ListView.builder(
                     padding: EdgeInsets.only(top: 30.0),
-                    itemCount: cakes.length,
+                    itemCount: filteredCakes.length,
                     physics: BouncingScrollPhysics(),
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
                       return OpenContainer(
                         transitionDuration: Duration(milliseconds: 500),
-                        openBuilder: (context, _) => DetailPage(cake: cakes[index]),
+                        openBuilder: (context, _) => DetailPage(cake: filteredCakes[index]),
                         closedBuilder: (context, openContainer) => GestureDetector(
                           onTap: openContainer,
                           child: Hero(
-                            tag: 'cake_${cakes[index].name}',
-                            child: ItemCard(cake: cakes[index]),
+                            tag: 'cake_${filteredCakes[index].name}',
+                            child: ItemCard(cake: filteredCakes[index]),
                           ),
                         ),
                       );
@@ -193,7 +195,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 Expanded(
                   flex: 1,
                   child: ListView.builder(
-                    itemCount: cakes.length,
+                    itemCount: filteredCakes.length,
                     scrollDirection: Axis.horizontal,
                     padding: EdgeInsets.only(bottom: 20.0),
                     itemBuilder: (context, index) {
@@ -211,7 +213,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               curve: Curves.easeOut,
                             ),
                           )),
-                          child: ItemCard02(cake: cakes[index]),
+                          child: ItemCard02(cake: filteredCakes[index]),
                         ),
                       );
                     },
@@ -258,21 +260,27 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return Container(
       height: 80.0,
       child: ListView.builder(
-          physics: BouncingScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          itemCount: categories.length,
-          itemBuilder: (itemBuilder, index) {
-            final category = categories[index];
-            return GestureDetector(
-              onTap: () {
-                setState(() => selectIndex = index);
-              },
-              child: CategoryButton(
-                category: category,
-                index: selectIndex,
-              ),
-            );
-          }),
+        physics: BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        itemCount: categories.length,
+        itemBuilder: (context, index) {
+          final category = categories[index];
+          return GestureDetector(
+            onTap: () {
+              setState(() {
+                selectIndex = index;
+                filteredCakes = getFilteredCakes(category.tag, cakes);
+                _animationController.reset();
+                _animationController.forward();
+              });
+            },
+            child: CategoryButton(
+              category: category,
+              index: selectIndex,
+            ),
+          );
+        },
+      ),
     );
   }
 }
