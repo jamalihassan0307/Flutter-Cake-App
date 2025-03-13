@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uidesign06/core/color.dart';
+import 'package:sweet_delights/core/color.dart';
 
 class Cakes {
   final String name;
