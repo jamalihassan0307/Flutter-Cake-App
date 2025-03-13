@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sweet_delights/core/color.dart';
 import 'package:sweet_delights/page/home_page.dart';
+import 'package:sweet_delights/page/walkthrough_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -31,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
         context,
         PageRouteBuilder(
           transitionDuration: Duration(milliseconds: 500),
-          pageBuilder: (context, animation, secondaryAnimation) => HomePage(),
+          pageBuilder: (context, animation, secondaryAnimation) => WalkthroughScreen(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(
               opacity: animation,
