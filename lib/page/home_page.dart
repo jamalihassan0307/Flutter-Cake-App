@@ -10,6 +10,7 @@ import 'package:uidesign06/widget/Category_btn.dart';
 import 'package:uidesign06/widget/circurl_btn.dart';
 import 'package:uidesign06/widget/item_card.dart';
 import 'package:uidesign06/widget/item_card_02.dart';
+import 'package:uidesign06/widget/item_list_card.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -215,6 +216,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               category: categories[index],
               selectedIndex: selectIndex,
               index: index,
+              onTap: () {
+                setState(() {
+                  selectIndex = index;
+                  filteredCakes = getFilteredCakes(categories[index].tag, cakes);
+                  _animationController.reset();
+                  _animationController.forward();
+                });
+              },
             ),
           );
         },
@@ -253,17 +262,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       padding: EdgeInsets.all(16),
       itemCount: filteredCakes.length,
       itemBuilder: (context, index) {
-        return Padding(
-          padding: EdgeInsets.only(bottom: 16),
-          child: OpenContainer(
-            transitionDuration: Duration(milliseconds: 500),
-            openBuilder: (context, _) => DetailPage(cake: filteredCakes[index]),
-            closedBuilder: (context, openContainer) => Hero(
-              tag: 'cake_list_${filteredCakes[index].name}',
-              child: ItemCard(
-                cake: filteredCakes[index],
-                onTap: openContainer,
-              ),
+        return OpenContainer(
+          transitionDuration: Duration(milliseconds: 500),
+          openBuilder: (context, _) => DetailPage(cake: filteredCakes[index]),
+          closedBuilder: (context, openContainer) => Hero(
+            tag: 'cake_list_${filteredCakes[index].name}',
+            child: ItemListCard(
+              cake: filteredCakes[index],
+              onTap: openContainer,
             ),
           ),
         );
