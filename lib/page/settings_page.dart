@@ -197,6 +197,7 @@ class SettingsPage extends StatelessWidget {
                 'Logout',
                 style: TextStyle(
                   fontSize: 18,
+                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -251,4 +252,4 @@ class SettingsPage extends StatelessWidget {
       endIndent: 20,
     );
   }
-} 
+}
