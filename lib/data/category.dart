@@ -25,18 +25,15 @@ List<Categories> categories = [
 // Function to filter cakes based on category
 List<Cakes> getFilteredCakes(String tag, List<Cakes> allCakes) {
   if (tag == 'all') return allCakes;
-  
+
   return allCakes.where((cake) {
     switch (tag) {
       case 'birthday':
-        return cake.name.toLowerCase().contains('birthday') ||
-            cake.description.toLowerCase().contains('birthday');
+        return cake.name.toLowerCase().contains('birthday') || cake.description.toLowerCase().contains('birthday');
       case 'wedding':
-        return cake.name.toLowerCase().contains('wedding') ||
-            cake.description.toLowerCase().contains('wedding');
+        return cake.name.toLowerCase().contains('wedding') || cake.description.toLowerCase().contains('wedding');
       case 'chocolate':
-        return cake.flavour.toLowerCase().contains('chocolate') ||
-            cake.name.toLowerCase().contains('chocolate');
+        return cake.flavour.toLowerCase().contains('chocolate') || cake.name.toLowerCase().contains('chocolate');
       case 'custom':
         return double.parse(cake.price) >= 299.99;
       default:
