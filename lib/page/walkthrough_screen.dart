@@ -107,6 +107,7 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
                                   'Get Started',
                                   style: TextStyle(
                                     fontSize: 16,
+                                    color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 )
@@ -212,4 +213,4 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
     _pageController.dispose();
     super.dispose();
   }
-} 
+}
