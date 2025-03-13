@@ -1,53 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:uidesign06/core/color.dart';
-import 'package:uidesign06/core/text_style.dart';
 import 'package:uidesign06/data/category.dart';
 
 class CategoryButton extends StatelessWidget {
   final Categories category;
+  final int selectedIndex;
   final int index;
+
   const CategoryButton({
     Key? key,
     required this.category,
+    required this.selectedIndex,
     required this.index,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final isSelected = selectedIndex == index;
     return AnimatedContainer(
-      duration: Duration(milliseconds: 1000),
-      margin: EdgeInsets.only(top: 30.0, right: 20.0),
-      padding: index == category.id
-          ? EdgeInsets.only(left: 5.0, right: 10.0)
-          : EdgeInsets.symmetric(horizontal: 10.0),
-      height: 60.0,
+      duration: Duration(milliseconds: 300),
+      margin: EdgeInsets.only(right: 12, bottom: 2),
+      padding: EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(50.0),
-        color: index == category.id ? mainColor : pink01,
-      ),
-      child: index == category.id
-          ? Row(
-              children: [
-                CircleAvatar(
-                  radius: 22,
-                  backgroundColor: white,
-                  child: SvgPicture.asset(
-                    category.image,
-                    height: 20.0,
-                  ),
-                ),
-                SizedBox(width: 15.0),
-                Text(
-                  category.name,
-                  style: txtBtnCategory,
+        color: isSelected ? mainColor : accent2.withOpacity(0.3),
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: isSelected
+            ? [
+                BoxShadow(
+                  color: mainColor.withOpacity(0.3),
+                  blurRadius: 8,
+                  offset: Offset(0, 4),
                 )
-              ],
-            )
-          : SvgPicture.asset(
-              category.image,
-              height: 30.0,
+              ]
+            : [],
+      ),
+      child: Row(
+        children: [
+          if (isSelected) ...[
+            Container(
+              padding: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+              ),
+              child: SvgPicture.asset(
+                category.image,
+                height: 18,
+                colorFilter: ColorFilter.mode(mainColor, BlendMode.srcIn),
+              ),
             ),
+            SizedBox(width: 8),
+          ],
+          Text(
+            category.name,
+            style: TextStyle(
+              color: isSelected ? Colors.white : mainColor,
+              fontSize: 16,
+              fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
