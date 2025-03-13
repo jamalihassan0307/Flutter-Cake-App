@@ -1,3 +1,5 @@
+import 'package:uidesign06/data/items.dart';
+
 class Categories {
   final int id;
   final String name;
@@ -13,42 +15,17 @@ class Categories {
 }
 
 List<Categories> categories = [
-  Categories(
-    id: 0, 
-    name: 'All Cakes', 
-    image: 'assets/icons/birthday-cake.svg',
-    tag: 'all'
-  ),
-  Categories(
-    id: 1, 
-    name: 'Birthday', 
-    image: 'assets/icons/cake.svg',
-    tag: 'birthday'
-  ),
-  Categories(
-    id: 2, 
-    name: 'Wedding', 
-    image: 'assets/icons/cupcake.svg',
-    tag: 'wedding'
-  ),
-  Categories(
-    id: 3, 
-    name: 'Chocolate', 
-    image: 'assets/icons/donut.svg',
-    tag: 'chocolate'
-  ),
-  Categories(
-    id: 4, 
-    name: 'Custom', 
-    image: 'assets/icons/cake01.svg',
-    tag: 'custom'
-  ),
+  Categories(id: 0, name: 'All Cakes', image: 'assets/icons/birthday-cake.svg', tag: 'all'),
+  Categories(id: 1, name: 'Birthday', image: 'assets/icons/cake.svg', tag: 'birthday'),
+  Categories(id: 2, name: 'Wedding', image: 'assets/icons/cupcake.svg', tag: 'wedding'),
+  Categories(id: 3, name: 'Chocolate', image: 'assets/icons/donut.svg', tag: 'chocolate'),
+  Categories(id: 4, name: 'Custom', image: 'assets/icons/cake01.svg', tag: 'custom'),
 ];
 
 // Function to filter cakes based on category
 List<Cakes> getFilteredCakes(String tag, List<Cakes> allCakes) {
   if (tag == 'all') return allCakes;
-  
+
   return allCakes.where((cake) {
     switch (tag) {
       case 'birthday':
