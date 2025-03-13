@@ -13,6 +13,26 @@ class CartProvider with ChangeNotifier {
     return _items.values.fold(0.0, (sum, item) => sum + item.total);
   }
 
+  void updateQuantity(String name, int quantity) {
+    if (_items.containsKey(name)) {
+      if (quantity > 0) {
+        _items.update(
+          name,
+          (existingItem) => CartItem(
+            id: existingItem.id,
+            name: existingItem.name,
+            image: existingItem.image,
+            price: existingItem.price,
+            quantity: quantity,
+          ),
+        );
+      } else {
+        removeItem(name);
+      }
+      notifyListeners();
+    }
+  }
+
   void addItem(Cakes cake, {int quantity = 1}) {
     if (_items.containsKey(cake.name)) {
       _items.update(
