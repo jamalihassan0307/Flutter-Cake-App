@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uidesign06/page/home_page.dart';
+import 'package:sweet_delights/page/home_page.dart';
 
 void main() {
   runApp(MyApp());

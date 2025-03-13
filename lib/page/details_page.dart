@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
-import 'package:uidesign06/core/color.dart';
-import 'package:uidesign06/core/text_style.dart';
-import 'package:uidesign06/data/items.dart';
-import 'package:uidesign06/widget/custom_app_bar.dart';
-import 'package:uidesign06/widget/rating_bar.dart';
+import 'package:sweet_delights/core/color.dart';
+import 'package:sweet_delights/core/text_style.dart';
+import 'package:sweet_delights/data/items.dart';
+import 'package:sweet_delights/widget/custom_app_bar.dart';
+import 'package:sweet_delights/widget/rating_bar.dart';
 
 class DetailPage extends StatefulWidget {
   final Cakes cake;

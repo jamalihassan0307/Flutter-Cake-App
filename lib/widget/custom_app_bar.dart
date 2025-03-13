@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:uidesign06/core/color.dart';
-import 'package:uidesign06/widget/circurl_btn.dart';
+import 'package:sweet_delights/core/color.dart';
+import 'package:sweet_delights/widget/circurl_btn.dart';
 
 class CustomAppBar extends StatefulWidget {
   const CustomAppBar({Key? key}) : super(key: key);

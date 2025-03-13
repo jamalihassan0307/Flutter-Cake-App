@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:animations/animations.dart';
-import 'package:uidesign06/core/color.dart';
-import 'package:uidesign06/core/text_style.dart';
-import 'package:uidesign06/data/category.dart';
-import 'package:uidesign06/data/items.dart';
-import 'package:uidesign06/page/details_page.dart';
-import 'package:uidesign06/widget/Category_btn.dart';
-import 'package:uidesign06/widget/circurl_btn.dart';
-import 'package:uidesign06/widget/item_card.dart';
-import 'package:uidesign06/widget/item_card_02.dart';
-import 'package:uidesign06/widget/item_list_card.dart';
+import 'package:sweet_delights/core/color.dart';
+import 'package:sweet_delights/core/text_style.dart';
+import 'package:sweet_delights/data/category.dart';
+import 'package:sweet_delights/data/items.dart';
+import 'package:sweet_delights/page/details_page.dart';
+import 'package:sweet_delights/widget/Category_btn.dart';
+import 'package:sweet_delights/widget/circurl_btn.dart';
+import 'package:sweet_delights/widget/item_card.dart';
+import 'package:sweet_delights/widget/item_card_02.dart';
+import 'package:sweet_delights/widget/item_list_card.dart';
 
 class HomePage extends StatefulWidget {
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:uidesign06/core/color.dart';
-import 'package:uidesign06/data/category.dart';
+import 'package:sweet_delights/core/color.dart';
+import 'package:sweet_delights/data/category.dart';
 
 class CategoryButton extends StatelessWidget {
   final Categories category;

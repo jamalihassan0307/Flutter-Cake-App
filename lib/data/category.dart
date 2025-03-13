@@ -1,4 +1,4 @@
-import 'package:uidesign06/data/items.dart';
+import 'package:sweet_delights/data/items.dart';
 
 class Categories {
   final int id;

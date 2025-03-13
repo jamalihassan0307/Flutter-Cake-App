@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:uidesign06/core/color.dart';
+import 'package:sweet_delights/core/color.dart';
 
 Widget roundButton({String? text, double? fontsize, double? height}) {
   return GestureDetector(

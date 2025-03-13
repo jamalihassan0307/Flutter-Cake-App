@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:uidesign06/core/color.dart';
+import 'package:sweet_delights/core/color.dart';
 
 class CircleButton extends StatelessWidget {
   final Function() onTap;

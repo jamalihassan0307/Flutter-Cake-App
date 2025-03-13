@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:uidesign06/core/color.dart';
-import 'package:uidesign06/data/items.dart';
+import 'package:sweet_delights/core/color.dart';
+import 'package:sweet_delights/data/items.dart';
 
 class ItemListCard extends StatelessWidget {
   final Cakes cake;
@@ -110,4 +110,4 @@ class ItemListCard extends StatelessWidget {
       ),
     );
   }
-} 
+}
