@@ -2,15 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:animations/animations.dart';
 import 'package:sweet_delights/core/color.dart';
-import 'package:sweet_delights/core/text_style.dart';
+// import 'package:sweet_delights/core/text_style.dart';
 import 'package:sweet_delights/data/category.dart';
 import 'package:sweet_delights/data/items.dart';
 import 'package:sweet_delights/page/details_page.dart';
 import 'package:sweet_delights/widget/Category_btn.dart';
-import 'package:sweet_delights/widget/circurl_btn.dart';
+// import 'package:sweet_delights/widget/circurl_btn.dart';
 import 'package:sweet_delights/widget/item_card.dart';
-import 'package:sweet_delights/widget/item_card_02.dart';
+// import 'package:sweet_delights/widget/item_card_02.dart';
 import 'package:sweet_delights/widget/item_list_card.dart';
+import 'package:sweet_delights/page/favorites_page.dart';
+import 'package:sweet_delights/page/cart_page.dart';
+import 'package:provider/provider.dart';
+import 'package:sweet_delights/providers/favorites_provider.dart';
+import 'package:sweet_delights/providers/cart_provider.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -244,6 +249,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       itemCount: filteredCakes.length,
       itemBuilder: (context, index) {
         return OpenContainer(
+          // openColor: Colors.transparent,
+          closedColor: pink02,
+          // middleColor: Colors.transparent,
           transitionDuration: Duration(milliseconds: 500),
           openBuilder: (context, _) => DetailPage(cake: filteredCakes[index]),
           closedBuilder: (context, openContainer) => Hero(
@@ -264,6 +272,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       itemCount: filteredCakes.length,
       itemBuilder: (context, index) {
         return OpenContainer(
+          openColor: Colors.transparent,
+          closedColor: Colors.transparent,
+          middleColor: Colors.transparent,
           transitionDuration: Duration(milliseconds: 500),
           openBuilder: (context, _) => DetailPage(cake: filteredCakes[index]),
           closedBuilder: (context, openContainer) => Hero(
@@ -314,14 +325,54 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               title: Text('Cakes'),
             ),
             ListTile(
-              onTap: () {},
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => FavoritesPage()),
+              ),
               leading: Icon(Icons.favorite),
               title: Text('Favorites'),
+              trailing: Consumer<FavoritesProvider>(
+                builder: (context, provider, child) {
+                  return provider.favorites.isEmpty
+                      ? null
+                      : CircleAvatar(
+                          radius: 12,
+                          backgroundColor: mainColor,
+                          child: Text(
+                            provider.favorites.length.toString(),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                            ),
+                          ),
+                        );
+                },
+              ),
             ),
             ListTile(
-              onTap: () {},
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => CartPage()),
+              ),
               leading: Icon(Icons.shopping_cart),
               title: Text('Cart'),
+              trailing: Consumer<CartProvider>(
+                builder: (context, provider, child) {
+                  return provider.items.isEmpty
+                      ? null
+                      : CircleAvatar(
+                          radius: 12,
+                          backgroundColor: mainColor,
+                          child: Text(
+                            provider.itemCount.toString(),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                            ),
+                          ),
+                        );
+                },
+              ),
             ),
             ListTile(
               onTap: () {},
