@@ -206,6 +206,7 @@ class CartPage extends StatelessWidget {
                         'Place Order',
                         style: TextStyle(
                           fontSize: 18,
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
