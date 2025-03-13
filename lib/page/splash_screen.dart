@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sweet_delights/core/color.dart';
-import 'package:sweet_delights/page/home_page.dart';
+// import 'package:sweet_delights/page/home_page.dart';
 import 'package:sweet_delights/page/walkthrough_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -110,4 +110,4 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       ),
     );
   }
-} 
+}

@@ -334,7 +334,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               trailing: Consumer<FavoritesProvider>(
                 builder: (context, provider, child) {
                   return provider.favorites.isEmpty
-                      ? null
+                      ? SizedBox.shrink()
                       : CircleAvatar(
                           radius: 12,
                           backgroundColor: mainColor,
@@ -359,7 +359,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               trailing: Consumer<CartProvider>(
                 builder: (context, provider, child) {
                   return provider.items.isEmpty
-                      ? null
+                      ? SizedBox.shrink()
                       : CircleAvatar(
                           radius: 12,
                           backgroundColor: mainColor,

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sweet_delights/core/color.dart';
-import 'package:sweet_delights/core/text_style.dart';
 import 'package:sweet_delights/data/items.dart';
-import 'package:sweet_delights/widget/circurl_btn.dart';
-import 'package:sweet_delights/widget/round_btn.dart';
 
 class ItemCard extends StatelessWidget {
   final Cakes cake;

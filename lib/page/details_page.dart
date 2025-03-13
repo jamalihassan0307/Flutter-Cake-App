@@ -1,10 +1,12 @@
+// ignore_for_file: unused_field
+
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
 import 'package:sweet_delights/core/color.dart';
-import 'package:sweet_delights/core/text_style.dart';
+// import 'package:sweet_delights/core/text_style.dart';
 import 'package:sweet_delights/data/items.dart';
-import 'package:sweet_delights/widget/custom_app_bar.dart';
-import 'package:sweet_delights/widget/rating_bar.dart';
+// import 'package:sweet_delights/widget/custom_app_bar.dart';
+// import 'package:sweet_delights/widget/rating_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:sweet_delights/providers/favorites_provider.dart';
