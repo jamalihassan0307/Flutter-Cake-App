@@ -7,108 +7,128 @@ import 'package:uidesign06/widget/round_btn.dart';
 
 class ItemCard extends StatelessWidget {
   final Cakes cake;
-  const ItemCard({Key? key, required this.cake}) : super(key: key);
+  final VoidCallback onTap;
+
+  const ItemCard({
+    Key? key,
+    required this.cake,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(right: 20.0),
-      width: 250.0,
-      padding: EdgeInsets.only(bottom: 20.0, left: 10.0),
-      child: Stack(
-        children: [
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              height: 250.0,
-              width: 250.0,
-              padding: EdgeInsets.only(left: 20.0, right: 10.0, bottom: 10.0),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 220,
+        margin: EdgeInsets.only(right: 20, bottom: 10),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(30),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 15,
+              offset: Offset(0, 5),
+            ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Image Container
+            Container(
+              height: 180,
               decoration: BoxDecoration(
-                color: white,
-                borderRadius: BorderRadius.circular(20.0),
-                boxShadow: [
-                  BoxShadow(
-                    color: blackShadow,
-                    offset: Offset(0, 7),
-                    blurRadius: 10.0,
+                color: cake.bgColor.withOpacity(0.3),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+              ),
+              child: Stack(
+                children: [
+                  Center(
+                    child: Hero(
+                      tag: 'cake_${cake.name}',
+                      child: Image.asset(
+                        cake.image,
+                        height: 140,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: 15,
+                    right: 15,
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 8,
+                          ),
+                        ],
+                      ),
+                      child: Icon(
+                        Icons.favorite_border,
+                        color: mainColor,
+                        size: 20,
+                      ),
+                    ),
                   ),
                 ],
               ),
+            ),
+            // Content
+            Padding(
+              padding: EdgeInsets.all(15),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     cake.name,
-                    maxLines: 1,
-                    style: txtItemCard,
-                  ),
-                  SizedBox(height: 7.0),
-                  Text(
-                    'Flavor: ${cake.flavour}',
-                    maxLines: 1,
-                    style: txtItemCard.copyWith(
-                      fontSize: 14,
-                      color: grayColor,
-                      fontWeight: FontWeight.w500,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
                     ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
+                  SizedBox(height: 8),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: '\$',
-                              style: txtHeading.copyWith(fontSize: 12.0),
-                            ),
-                            TextSpan(
-                              text: cake.price,
-                              style: txtHeading.copyWith(fontSize: 17.0),
-                            ),
-                          ],
+                      Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                        size: 20,
+                      ),
+                      SizedBox(width: 4),
+                      Text(
+                        cake.rating.toString(),
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black54,
                         ),
                       ),
-                      roundButton(),
+                      Spacer(),
+                      Text(
+                        '\$${cake.price}',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: mainColor,
+                        ),
+                      ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
-          ),
-          Positioned(
-            top: 0,
-            right: 0,
-            child: Container(
-              height: 200.0,
-              width: 220.0,
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
-              decoration: BoxDecoration(
-                color: pink02,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20.0),
-                  topRight: Radius.circular(20.0),
-                  bottomLeft: Radius.circular(20.0),
-                ),
-              ),
-              child: Image.asset(
-                cake.image,
-                fit: BoxFit.fitWidth,
-              ),
-            ),
-          ),
-          Positioned(
-            top: 10,
-            right: 10,
-            child: CircleButton(
-              size: 30.0,
-              iconColor: mainColor,
-              onTap: () {},
-              image: 'heart_full.svg',
-            ),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }
