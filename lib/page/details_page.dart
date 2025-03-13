@@ -330,6 +330,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                                         'Add to Cart - \$${(double.parse(widget.cake.price) * quantity).toStringAsFixed(2)}',
                                         style: TextStyle(
                                           fontSize: 16,
+                                          color: Colors.white,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
