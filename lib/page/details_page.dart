@@ -5,7 +5,6 @@ import 'package:uidesign06/core/text_style.dart';
 import 'package:uidesign06/data/items.dart';
 import 'package:uidesign06/widget/custom_app_bar.dart';
 import 'package:uidesign06/widget/rating_bar.dart';
-import 'package:uidesign06/widget/round_btn.dart';
 
 class DetailPage extends StatefulWidget {
   final Cakes cake;
@@ -180,7 +179,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
                         child: SingleChildScrollView(
                           physics: BouncingScrollPhysics(),
                           child: ReadMoreText(
-                            widget.cake.destription,
+                            widget.cake.description,
                             trimLines: 4,
                             trimMode: TrimMode.Line,
                             trimCollapsedText: 'Show more',

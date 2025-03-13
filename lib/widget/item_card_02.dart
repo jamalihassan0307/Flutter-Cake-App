@@ -19,16 +19,13 @@ class ItemCard02 extends StatelessWidget {
             width: 250.0,
             margin: EdgeInsets.only(right: 15.0, left: 10.0),
             padding: EdgeInsets.only(bottom: 20.0, left: 10.0),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
-                color: white,
-                boxShadow: [
-                  BoxShadow(
-                    color: blackShadow,
-                    offset: Offset(0, 5),
-                    blurRadius: 10,
-                  )
-                ]),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.0), color: white, boxShadow: [
+              BoxShadow(
+                color: blackShadow,
+                offset: Offset(0, 5),
+                blurRadius: 10,
+              )
+            ]),
           ),
         ),
         Container(
@@ -67,7 +64,7 @@ class ItemCard02 extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Flavor: ${cake.flavourl}',
+                  'Flavor: ${cake.flavour}',
                   maxLines: 1,
                   style: txtItemCard.copyWith(
                     fontSize: 12,
