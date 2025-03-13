@@ -36,7 +36,6 @@ class ItemCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Image Container
             Container(
               height: 180,
               decoration: BoxDecoration(
@@ -46,13 +45,10 @@ class ItemCard extends StatelessWidget {
               child: Stack(
                 children: [
                   Center(
-                    child: Hero(
-                      tag: 'cake_${cake.name}',
-                      child: Image.asset(
-                        cake.image,
-                        height: 140,
-                        fit: BoxFit.contain,
-                      ),
+                    child: Image.asset(
+                      cake.image,
+                      height: 140,
+                      fit: BoxFit.contain,
                     ),
                   ),
                   Positioned(
@@ -80,7 +76,6 @@ class ItemCard extends StatelessWidget {
                 ],
               ),
             ),
-            // Content
             Padding(
               padding: EdgeInsets.all(15),
               child: Column(
