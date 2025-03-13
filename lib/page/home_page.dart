@@ -16,6 +16,7 @@ import 'package:sweet_delights/page/cart_page.dart';
 import 'package:provider/provider.dart';
 import 'package:sweet_delights/providers/favorites_provider.dart';
 import 'package:sweet_delights/providers/cart_provider.dart';
+import 'package:sweet_delights/page/settings_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -379,7 +380,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
             ),
             ListTile(
-              onTap: () {},
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => SettingsPage()),
+              ),
               leading: Icon(Icons.settings),
               title: Text('Settings'),
             ),
