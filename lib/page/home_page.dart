@@ -167,7 +167,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           CircleAvatar(
             radius: 20,
             backgroundColor: accent2,
-            child: Icon(Icons.person_outline, color: mainColor),
+            child: ClipOval(
+              child: Image.asset(
+                'assets/profile.jpg',
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
         ],
       ),
@@ -273,9 +278,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       itemCount: filteredCakes.length,
       itemBuilder: (context, index) {
         return OpenContainer(
-          openColor: Colors.transparent,
-          closedColor: Colors.transparent,
-          middleColor: Colors.transparent,
+          // openColor: Colors.transparent,
+          closedColor: pink02,
+          // middleColor: Colors.transparent,
           transitionDuration: Duration(milliseconds: 500),
           openBuilder: (context, _) => DetailPage(cake: filteredCakes[index]),
           closedBuilder: (context, openContainer) => Hero(
