@@ -315,14 +315,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
             ),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                // Close drawer and refresh home page
+                _advancedDrawerController.hideDrawer();
+                setState(() {
+                  selectIndex = 0;
+                  filteredCakes = cakes;
+                  _searchController.clear();
+                  isSearching = false;
+                });
+              },
               leading: Icon(Icons.home),
               title: Text('Home'),
-            ),
-            ListTile(
-              onTap: () {},
-              leading: Icon(Icons.cake),
-              title: Text('Cakes'),
             ),
             ListTile(
               onTap: () => Navigator.push(
