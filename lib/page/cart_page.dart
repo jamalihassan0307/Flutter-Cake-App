@@ -54,38 +54,94 @@ class CartPage extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),
-                      child: ListTile(
-                        contentPadding: EdgeInsets.all(16),
-                        leading: Container(
-                          width: 60,
-                          height: 60,
-                          decoration: BoxDecoration(
-                            color: pink02.withOpacity(0.3),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Image.asset(item.image),
-                        ),
-                        title: Text(item.name),
-                        subtitle: Text('Quantity: ${item.quantity}'),
-                        trailing: Row(
-                          mainAxisSize: MainAxisSize.min,
+                      child: Padding(
+                        padding: EdgeInsets.all(16),
+                        child: Row(
                           children: [
-                            Text(
-                              '\$${item.total.toStringAsFixed(2)}',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
+                            Container(
+                              width: 60,
+                              height: 60,
+                              decoration: BoxDecoration(
+                                color: pink02.withOpacity(0.3),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Image.asset(item.image),
+                            ),
+                            SizedBox(width: 16),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    item.name,
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Row(
+                                    children: [
+                                      _buildQuantityButton(
+                                        icon: Icons.remove,
+                                        onTap: () => cartProvider.updateQuantity(
+                                          item.name,
+                                          item.quantity - 1,
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.symmetric(horizontal: 12),
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal: 12,
+                                          vertical: 8,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey[100],
+                                          borderRadius: BorderRadius.circular(10),
+                                        ),
+                                        child: Text(
+                                          item.quantity.toString(),
+                                          style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                      _buildQuantityButton(
+                                        icon: Icons.add,
+                                        onTap: () => cartProvider.updateQuantity(
+                                          item.name,
+                                          item.quantity + 1,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
-                            IconButton(
-                              icon: Icon(Icons.delete, color: Colors.red),
-                              onPressed: () {
-                                cartProvider.removeItem(item.name);
-                                Fluttertoast.showToast(
-                                  msg: 'Removed from cart',
-                                  backgroundColor: mainColor,
-                                );
-                              },
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text(
+                                  '\$${item.total.toStringAsFixed(2)}',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: mainColor,
+                                  ),
+                                ),
+                                SizedBox(height: 8),
+                                IconButton(
+                                  icon: Icon(Icons.delete, color: Colors.red),
+                                  onPressed: () {
+                                    cartProvider.removeItem(item.name);
+                                    Fluttertoast.showToast(
+                                      msg: 'Removed from cart',
+                                      backgroundColor: mainColor,
+                                    );
+                                  },
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -163,4 +219,25 @@ class CartPage extends StatelessWidget {
       ),
     );
   }
-} 
+
+  Widget _buildQuantityButton({
+    required IconData icon,
+    required VoidCallback onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: mainColor,
+          shape: BoxShape.circle,
+        ),
+        child: Icon(
+          icon,
+          color: Colors.white,
+          size: 16,
+        ),
+      ),
+    );
+  }
+}
