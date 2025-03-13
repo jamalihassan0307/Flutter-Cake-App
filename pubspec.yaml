@@ -84,9 +84,7 @@ flutter:
 # flutter pub run flutter_launcher_icons
 flutter_launcher_icons:
   android: true
-  ios: true
   image_path: "assets/images/cap_cake.png"
   adaptive_icon_background: "#FFFFFF"
   adaptive_icon_foreground: "assets/images/cap_cake.png"
-  remove_alpha_ios: true
   min_sdk_android: 21
