@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sweet_delights/page/splash_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:sweet_delights/providers/favorites_provider.dart';
+import 'package:sweet_delights/providers/cart_provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -10,7 +13,15 @@ void main() {
       statusBarIconBrightness: Brightness.dark,
     ),
   );
-  runApp(MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => FavoritesProvider()),
+        ChangeNotifierProvider(create: (_) => CartProvider()),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

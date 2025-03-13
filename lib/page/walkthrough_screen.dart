@@ -111,7 +111,7 @@ class _WalkthroughScreenState extends State<WalkthroughScreen> {
                                     fontWeight: FontWeight.bold,
                                   ),
                                 )
-                              : Icon(Icons.arrow_forward),
+                              : Icon(Icons.arrow_forward, color: Colors.white),
                         ),
                       ),
                     ],
